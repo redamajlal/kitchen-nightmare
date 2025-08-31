@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://ball5ccs73f6b"]
+
+[ext_resource type="Texture2D" uid="uid://bcl0b217vecvo" path="res://assets/kitchenpixelart.png" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://4dsx15dwmsvp" path="res://scenes/player.tscn" id="2_yqjtg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbhrr"]
+texture = ExtResource("1_lnu2h")
+modulate_color = Color(0.629675, 0.629675, 0.629675, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+distance = -549.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+normal = Vector2(1, 0)
+distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(-1, 0)
+distance = -1023.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_right = 1024.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_lbhrr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+scale = Vector2(6.1, 6.1)
+
+[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(523, 557)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yqjtg")
+
+[node name="CollisionShape2D_left" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="CollisionShape2D_right" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
