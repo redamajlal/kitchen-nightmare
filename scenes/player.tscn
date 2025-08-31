@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4dsx15dwmsvp"]
 
 [ext_resource type="Script" uid="uid://c6pislhr46qeo" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://bl4ojp8sfgyvv" path="res://assets/benjamin.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bl4ojp8sfgyvv" path="res://assets/sprites/benjamin.png" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(108, 82)

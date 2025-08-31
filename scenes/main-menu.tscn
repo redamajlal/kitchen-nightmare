@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dimqg11sv68ad"]
+[gd_scene load_steps=7 format=3 uid="uid://dimqg11sv68ad"]
 
 [ext_resource type="Script" uid="uid://bk76wuad4gcsr" path="res://scenes/main_menu.gd" id="1_hf3n6"]
 [ext_resource type="FontFile" uid="uid://bfb3540f8jmre" path="res://assets/ka1.ttf" id="1_rk22q"]
 [ext_resource type="Texture2D" uid="uid://bcl0b217vecvo" path="res://assets/kitchenpixelart.png" id="1_u4kki"]
+[ext_resource type="AudioStream" uid="uid://snvfnop2fen8" path="res://assets/audio/gaming-game-minecraft-background-music-387000.mp3" id="4_xg1py"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hf3n6"]
 texture = ExtResource("1_u4kki")
@@ -52,14 +53,6 @@ theme_override_font_sizes/font_size = 37
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u4kki")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_rk22q")
-theme_override_font_sizes/font_size = 37
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u4kki")
-text = "Options"
-
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -91,6 +84,9 @@ Nightmare!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xg1py")
+autoplay = true
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
